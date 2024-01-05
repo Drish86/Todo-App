@@ -29,17 +29,18 @@ Build a ToDo List application which can run without server.
   - Each task should consist of:
     - Title
     - Description
-    - Status (completed or not completed)
+    - Status (completed or not completed, yes or no or whatever else you choose)
     - Entry date
     - End date
     - Priority (High, Medium, Low)
+    - Owner (user)
   - A table should always show the following columns:
     - Row number
     - Title
     - End date
     - Priority in form of a colored circle
-    - Completed
-  - Task description will be shown only when user clicks on the specific row
+    - Status
+  - Task description will be shown only when user clicks on the specific row (or just on mouse over -> e.g. title attribute)
   - Hide description
   - Tasks should be ordered by the End date in ascending order
   - Ability to change person (when the person changes, task table is updated)
@@ -63,12 +64,12 @@ Build a ToDo List application which can run without server.
 
 Replace all static data with data received from the backend API.
 
-* Design and build backend API using NodeJS Express framework.
-* Connect Frontent and Backend
+- Design and build backend API using NodeJS Express framework.
+- Connect Frontent and Backend
 
-## Phase 3 
+## Phase 3
 
 Application ergonomy and design.
 
-* Application should be responsive
-* Application should be visually appealing
+- Application should be responsive
+- Application should be visually appealing

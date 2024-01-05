@@ -3,88 +3,125 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="style.css" />
-    <title>ToDo App</title>
+    <title>ToDo list</title>
   </head>
   <body>
     <header>
-      <h1 id="title">ToDo List</h1>
+      <h1>To Do list</h1>
     </header>
 
-    <main class="container">
-      <section class="users">
-        <label for="userSelect">Select User: </label>
-        <select id="userSelect" onchange="changePerson()">
-          <option value="user1">User 1</option>
-          <option value="user2">User 2</option>
-          <option value="user3">User 3</option>
+    <main>
+      <section id="users">
+        <label for="userSelect">Select user: </label>
+        <select name="Select user" id="users">
+          <option value="user1">User1</option>
+          <option value="user2">User2</option>
+          <option value="user3">User3</option>
         </select>
       </section>
+      <br />
+      <section id="newTask">
+        <div>
+          <form>
+            <label for="taksTitle">Task title</label>
+            <input
+              type="text"
+              aria-label="Write a new todo item"
+              placeholder="Add new task"
+              id="newTaskTitle"
+              autofocus
+              required
+            />
+            <br /><br />
+            <label for="description">Description</label>
+            <input
+              type="text"
+              aria-label="Write a more task details"
+              placeholder="More task details"
+              id="taskDetails"
+            /><br /><br />
+            <label for="endDate">End date of task</label>
+            <input type="date" placeholder="" id="endDateTask" /> <br />
+            <p>Select priority of task</p>
+            <input
+              type="radio"
+              id="hPriority"
+              name="radioPriority"
+              value="high"
+            />
+            <span class="checkmark">High Priority</span> <br />
+            <input
+              type="radio"
+              id="mPriority"
+              name="radioPriority"
+              value="medium"
+            />
+            <span class="checkmark">Medium Priority</span> <br />
+            <input
+              type="radio"
+              id="lPriority"
+              name="radioPriority"
+              value="low"
+            />
+            <span class="checkmark">Low Priority</span> <br />
+            <br />
+            <button type="click" id="addTask">Add task</button>
+          </form>
+        </div>
+        <br />
 
-      <section class="newSectionTask">
-        <div id="newTask"></div>
-        <form>
-          <label for="newTaskTitle">Task</label>
-          <input
-            type="text"
-            aria-label="Write a new todo item"
-            placeholder="add new task"
-            id="newTaskTitle"
-            required
-          />
-          <input type="text" />
-          <button id="btn" onclick="fetchTasks()">Add Task</button>
-        </form>
-      </section>
-
-      <section class="taskTable">
-        <h2>Task Table</h2>
-
-        <table id="taskTable">
-          <tbody>
-            <tr>
-              <th>Row Number</th>
-              <button aria-label="delete" id="delTask">&times;</button>
-              <th><div>Task</div></th>
-              <th>End Date</th>
-              <th>Priority</th>
-              <th>Completed</th>
-            </tr>
-          </tbody>
-          <tbody id="taskTableBody"></tbody>
-        </table>
-
-        <button id="btnTaskDetails">Task details</button>
-        <div id="taskDetailModal" class="modal">
-          <div class="modalDetails">
-            <span class="close">&times;</span>
-            <h2>Task details</h2>
-            <p>more task details...</p>
-            <div id="taskPriority">
-              <label class="radioBtnPriorityH">
-                <input type="radio" checked="checked" name="radio" />
-                <span class="checkmark">High Priority</span>
-              </label>
-              <label class="radioBtnPriorityM">
-                <input type="radio" name="radio" />
-                <span class="checkmark">Medium Priority</span>
-              </label>
-              <label class="radioBtnPriorityL">
-                <input type="radio" name="radio" />
-                <span class="checkmark">Low Priority</span>
-              </label>
-            </div>
-          </div>
+        <div id="task-container">
+          <table id="taskTable">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Title</th>
+                <th>Description</th>
+                <th>Status</th>
+                <th>Entry Date</th>
+                <th>End Date</th>
+                <th>Priority</th>
+                <th>Completed</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr id="task" data-user="" data-end-date="">
+                <td>1</td>
+                <td>Task</td>
+                <td id="taskDetails">
+                  <div>?</div>
+                  Description
+                </td>
+                <td id="taskCompleted">Not Completed</td>
+                <td>05.01.2024.</td>
+                <td>10.01.2024.</td>
+                <td>
+                  <input
+                    type="radio"
+                    name="radioPriority"
+                    onclick="openPriorityModal()"
+                  />Medium
+                </td>
+                <td>
+                  <input id="taskCompleted" type="checkbox" />
+                </td>
+                <td>
+                  <button aria-label="delete" id="delTask">&times;</button>
+                  <button aria-label="update" id="updateTask">
+                    Update task
+                  </button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
         </div>
       </section>
-
-      <footer class="taskCounter">
-        <h2>Task Counter</h2>
-        <p>Total Tasks: <span id="totalTasks">0</span></p>
-        <p>Completed Tasks: <span id="completedTasks">0</span></p>
-      </footer>
     </main>
 
-    <script src="app.js"></script>
+    <footer class="taskCounter">
+      <h2>Task Counter</h2>
+      <p>All Tasks: <span id="AllTasks">0</span></p>
+      <p>Completed Tasks: <span id="completedTasks">0</span></p>
+    </footer>
   </body>
 </html>
